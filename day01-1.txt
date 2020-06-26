@@ -1,0 +1,76 @@
+Regression(回归)
+
+第一节课，2020.6.26
+
+1.case:stock market forecast,self-driving car,recommendation...
+步骤：
+1.model（function set）：y=b+w·Xcp（linear model） 
+
+2.Goodness of function
+
+	model -- loss function --training data
+	the equation of loss function	
+	the figure of loss function
+
+3.Best function
+
+	找一个f是loss function最小
+	线性代数&gredient descent(梯度下降)
+	gradient descent(只要可微分，都可以处理)	
+	找一个w使loss function最小(穷举)
+	
+		1.随机选取初始点w0，
+		计算dl/dw=w0,切线斜率是负值，增大w，斜率正值，减小w
+		增加量：取决于微分值，还取决于一个事先定好的数值常数(step size)
+		
+		2.再次计算新的数值
+		
+		3.直到计算到极值
+		
+推广到两个常数：
+	1.随机选取w0，b0
+
+	2.计算两个的偏微分
+
+	得到的偏微分的加减同上
+
+	3.计算w1和b2的偏微分，更新参数，直到计算到极值
+
+	在线性回归，最佳参数都是同一组
+
+理解：在regression，就是找回归曲线，穷举所有数值，但是可以直接
+对LOSS FUNCTION进行计算，然后计算loss function的最有解
+通过偏微分进行计算最佳数值
+注意增加量等于选取包括偏微分大小以及step size的选取
+
+如果需要做的更好，就需要重新设计model
+eg:加入二次项
+重新进行预测
+
+继续加入项数，发现average error并没有减小很多
+再次增加，却发现average error开始变大
+结果开始变得糟糕了
+
+training data 和 testing data 的error
+【overfitting(过拟合)】：在training上得到比较好的结果然而在testing得到的结果
+这表明model不能太复杂
+
+不同物种重新进行分段
+
+对函数的不同部分进行【分段拟合】
+利用【冲击函数】重新进行函数的设计
+
+理解：物种，重量，高度...这些都是可能是有关系的，所以这些都需要再进行探究
+在这个部分，factor也是一个非常重要的部分。
+
+
+返回step two
+regularization(正则化)
+重新redesign我们的loss function
+加上一项额外的项数进行重新拟合
+加上参数接近零：加上之后，输出y对输入x越不sensitive，就越平滑
+为什么要平滑？平滑的function受到的噪声(杂项)影响小
+那么【这一项 浪大～】越大，也表明了考虑的平滑因素越大，function越平滑
+【浪大】 增大其error先变小后变大。可以想象为当该项过大就接近直线无意义。
+所以也必须考虑这一项如何选择
+
