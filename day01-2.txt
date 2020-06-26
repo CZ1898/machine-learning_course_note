@@ -1,0 +1,48 @@
+Basic concept
+
+error来自什么地方：bias(偏差)；variance(方差)
+
+ f*和f head
+ f*(f head 估测值)
+ f head:真的函数数值
+ 
+ eg:用概率论，概率论关于均值方差部分
+ 大数定理
+ 
+ 用一个靶来解释：
+        bias:与靶心的距离
+        variance:和均值之间的距离
+
+variance
+简单的model:其variance较小，比较不会受data影响(eg:f(x)=c常数)
+复杂的model:其varience较大，受data影响较大
+
+Bias
+看与靶心(f head)距离
+简单的model:比较大的bias
+复杂的model:比较小的bias
+
+model就是function set，简单的model的space比较小，甚至都没有包含靶心
+
+conclusions:简单model:方差小偏差大；复杂model:方差大偏差小
+所以应该去寻找这样一个平衡点，是考虑二者时都较小
+
+overfitting:bias大，复杂model
+underfitting:variance，简单model
+
+同时将其和数据结合起来看：
+overfitting在testing data的error较大，underfitting在training data的error较大
+
+解决问题：
+bias:重新设计model:1.增加更多的factors；2.更复杂的model
+variance:1.more data;2.regularization(正则化)【浪大～】
+
+如何选择model?
+validation(交叉验证)
+
+	1.把开始的training set分成training set和validation(选model)分成两组
+	2.用validation作为一部分选model
+
+N-fold Cross Validation(n-折交叉验证)
+
+	分成三份，分别作validation选择model每个model都去尝试
