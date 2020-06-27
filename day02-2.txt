@@ -1,0 +1,42 @@
+Classification(分类)
+x -- function -- class
+
+ideal alternatives:
+x -- 进行分类 --得到不同的output
+loss function:
+用冲击函数，就是错误次数
+eg:perceptron(感知机),SVM(支持向量机)
+
+今日学习：
+贝叶斯公式(后验概率)
+
+Generative Model(全概率公式)
+
+例子：高斯函数的模拟(二维)
+
+*(需要复习)maximum likelihood:最大似然估计
+1.用一个函数L来代表计算选取这几个点的概率(独立同分布，用其分布函数相乘即可)
+2.然后计算L的MAX数值(穷举)
+也就找到了 u* 和 西格玛*(求导找最大值)
+这里可以直接用均值和方差表示
+
+modifying model:使两个type同时使用一个 西格玛(防止过拟合)
+然后再进行最大似然估计maximum likelihood
+由于两个type的 西格玛 是不同的，最后按照权重得到一个统一的 西格玛
+那么分类的时候其boundary是线性的linear model
+
+conclusion：
+1.function set：贝叶斯公式，算出来的数值得到不同的output
+2.Goodness of a function:最大似然估计
+3.find the best function:
+
+为什么用guassin模型
+随便选，自己喜欢
+常用还有朴素贝叶斯(naive Bayes Classifier)或者是伯努力公式(二次特征，binary features)
+
+分析posterior probability(后验概率)
+公式转换为sigmoid function(S型函数)
+最后转化为z=ln(~)+ln(N1/N2)
+最后假设了西格玛相等
+最终将第一项看作vector,第二项看作scale
+P(C1|X) = 西格玛*(w*x+b)
