@@ -1,0 +1,39 @@
+New optimization(最优化) for deep learning
+
+xt--theta t--yt--y head t
+
+yt -- y head t(中间会计算loss)
+
+找到一个theta使Loss最小
+
+如何寻找theta
+
+on-line vs off-line(所有的training data)
+off-line:没有那么大的空间
+
+	1.SGD(stochastic gradient descent):1847
+	随机找一个
+
+	2.SGD with Momentum:1986
+	要把过去的movement加进去，拥有过去累加的项，所以不会停留在local minima这种类型的地方，类似于惯性
+
+	3.adagrad:2011
+	加上了一个分母，反差，避免step过大或者过小
+	
+	4.RMSProp:2013
+	和adagrad分母不同，类似momentum，加上了一个过去的项，adagrad可能导致分母过大而step太小的问题卡住
+	
+	5.Adam:2015
+	SGDM + RMSProp 
+	第二项发生了较大变化，控制了step的size，防止过大导致跨步过大，或者过小卡住
+	
+	3-5:为什么都是2014年左右？
+	BERT;Transformer;Tacotron;YOLO;MASK R-CNN;RES NET;BIG-GAN;MAML
+	BACK TO 2014:adam和SGDM，抢到两个极端位置
+	ADAM:training 速度很快，落差大
+	SGDM:稳定，落差小
+	
+	
+未完待续......
+
+
