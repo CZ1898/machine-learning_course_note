@@ -1,0 +1,57 @@
+gradient descent(梯度下降)
+
+review:loss function越小越好
+随即选取一组起始参数，接下来计算偏微分，并设置一个参数作为step size，
+用原数值减，反复进行这一步，直到偏微分为0，也就是不断计算梯度
+也就是梯度下降最快的地方的反方向
+所以必须要调整loss，需要画出loss随step size的变化
+
+	adaptive learning rates(自适应学习率)
+	原则：
+	1.开始时，离最低点远，大
+	2.之后，靠近最低点，小
+
+
+vanilla gradient desecnt:最普通的
+
+tip-1
+adagrad:增加了一个[西格玛：过去所有微分值的均方根root mean square]
+	矛盾的地方：梯度越大，step越大，但是权值这部分却越小
+	解释：反差，造成反差的效果
+
+当同时多个参数，最好的step还需要考虑二次微分，一次微分除以二次微分
+牛顿迭代法思想
+	和adagrade关系：平方和开根号就是代表了二次微分
+	当data量比较多时，计算需要很大的时间，减小额外计算，相当于估计二次微分，没有多余运算
+
+tip-2
+stochastic gradient descent(随即梯度下降)
+1.随即选取一个example，计算loss，只考虑一个example
+2.每看到一个example，都update参数
+与gradient descent相比，这种方法只需算一次，上面梯度下将每次都要计算loss
+
+tip-3
+feature scaling(特征缩放)
+将不同的feature的数值进行缩放使之具有相同的尺度
+类似归一化处理
+标准化处理
+
+
+gradient descent thoery
+warning of math
+
+taylor series(泰勒级数)
+
+	当x很接近x0时，可以删除高次项
+	
+Multivariable Taylor Series(多元泰勒级数)
+
+给一个中心点，画一个圆圈，可以用泰勒级数只取一次微分的部分，其他项数省略
+
+然后找LOSS最小，就是选取微分的反方向，
+
+按照这样建立的式子就是gradient descent
+
+如果考虑二次式，但是不常用，会多很多运算(不能得到普及)
+
+但是会卡到local minima或者鞍点
