@@ -25,7 +25,7 @@ adagrad:增加了一个[西格玛：过去所有微分值的均方根root mean s
 	当data量比较多时，计算需要很大的时间，减小额外计算，相当于估计二次微分，没有多余运算
 
 tip-2
-stochastic gradient descent(随即梯度下降)
+stochastic gradient descent(随机梯度下降)
 1.随即选取一个example，计算loss，只考虑一个example
 2.每看到一个example，都update参数
 与gradient descent相比，这种方法只需算一次，上面梯度下将每次都要计算loss
